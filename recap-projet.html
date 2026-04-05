@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalendlyByEnzo — Récap Projet</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      background: #fafaf8;
+      color: #1c1c1c;
+      line-height: 1.7;
+      padding: 40px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.4rem;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e5e3df;
+    }
+
+    h3 {
+      font-weight: 400;
+      font-size: 1.1rem;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      color: #1c1c1c;
+    }
+
+    .subtitle {
+      color: #6b6b6b;
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1c1c1c;
+      color: #fafaf8;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-right: 6px;
+    }
+
+    .badge.green { background: #2d6a4f; }
+    .badge.orange { background: #c0622a; }
+
+    .phase {
+      background: #fff;
+      border: 1px solid #e5e3df;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .phase-number {
+      background: #1c1c1c;
+      color: #fafaf8;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .phase-title {
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+
+    .phase p {
+      color: #6b6b6b;
+      margin-bottom: 8px;
+    }
+
+    .challenge {
+      background: #f0eeeb;
+      border-left: 3px solid #c0622a;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+    }
+
+    .challenge strong { color: #c0622a; }
+
+    .solution {
+      background: #f0eeeb;
+      border-left: 3px solid #2d6a4f;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+    }
+
+    .solution strong { color: #2d6a4f; }
+
+    .files {
+      font-size: 0.85rem;
+      color: #6b6b6b;
+      margin-top: 12px;
+    }
+
+    .files code {
+      background: #f0eeeb;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .stat {
+      background: #fff;
+      border: 1px solid #e5e3df;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #1c1c1c;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: #6b6b6b;
+      margin-top: 4px;
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+
+    .flow-step {
+      background: #f0eeeb;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .flow-arrow {
+      color: #6b6b6b;
+      font-size: 1.2rem;
+    }
+
+    .todo {
+      background: #fff;
+      border: 1px solid #e5e3df;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 12px 0;
+    }
+
+    .todo h3 { margin-top: 0; }
+
+    ol, ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+
+    li { margin-bottom: 4px; }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid #e5e3df;
+      color: #6b6b6b;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media print {
+      body { padding: 20px; }
+      .phase { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CalendlyByEnzo</h1>
+  <p class="subtitle">Récap complet du projet — construit le 6 avril 2026</p>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value">8</div>
+      <div class="stat-label">Phases complétées</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">21</div>
+      <div class="stat-label">Requirements v1</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">32</div>
+      <div class="stat-label">Fichiers créés</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">14</div>
+      <div class="stat-label">Tests unitaires</div>
+    </div>
+  </div>
+
+  <h2>C'est quoi ce projet ?</h2>
+  <p>
+    CalendlyByEnzo est <strong>ta propre page de prise de rendez-vous</strong>, sur ton domaine (remidene-enzo),
+    avec ton style. Un prospect arrive depuis ton quiz burnout, voit une mini page de vente qui explique
+    ce qu'il va obtenir pendant 30 minutes de mini-coaching, valide qu'il est prêt, choisit un créneau,
+    et booke. Tu reçois une notif Telegram, il reçoit un email de confirmation + un rappel 24h avant.
+  </p>
+
+  <h3>Le parcours prospect</h3>
+  <div class="flow">
+    <span class="flow-step">Quiz Burnout</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">Page de vente</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">Checklist</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">Créneaux</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">Formulaire</span>
+    <span class="flow-arrow">→</span>
+    <span class="flow-step">Confirmé !</span>
+  </div>
+
+  <h2>Les 8 phases expliquées</h2>
+
+  <!-- Phase 1 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">1</div>
+      <div class="phase-title">Project Setup</div>
+      <span class="badge green">Infrastructure</span>
+    </div>
+    <p>
+      <strong>En simple :</strong> On crée le projet à partir de zéro. C'est comme poser les fondations d'une maison
+      avant de construire les murs. On installe Next.js (le framework web), on configure les couleurs et la police
+      pour que ça ressemble exactement à ton quiz burnout (fond crème, texte sombre, police Inter), et on prépare
+      la base de données.
+    </p>
+    <div class="challenge">
+      <strong>Challenge :</strong> Tailwind CSS version 4 a changé sa façon de fonctionner — plus de fichier de config JavaScript,
+      tout se fait en CSS. Il fallait s'adapter à cette nouvelle syntaxe.
+    </div>
+    <div class="solution">
+      <strong>Solution :</strong> Utilisation de la directive <code>@theme</code> en CSS pour déclarer tous les tokens de design
+      (les 14 couleurs du quiz burnout) directement dans le fichier CSS global. Résultat : les couleurs sont disponibles
+      partout dans l'app via des classes simples comme <code>bg-bg</code>, <code>text-sub</code>.
+    </div>
+    <div class="files">
+      Fichiers clés : <code>globals.css</code> <code>layout.tsx</code> <code>page.tsx</code> <code>db/schema.ts</code>
+    </div>
+  </div>
+
+  <!-- Phase 2 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">2</div>
+      <div class="phase-title">Availability Engine</div>
+      <span class="badge green">Logique métier</span>
+    </div>
+    <p>
+      <strong>En simple :</strong> C'est le cerveau du système. Une fonction qui prend tes horaires de disponibilité
+      (ex: mardi et jeudi 14h-18h) + tes événements Google Calendar, et calcule les créneaux de 30 minutes
+      réellement disponibles. C'est comme un puzzle : on découpe la journée en tranches de 30min et on enlève
+      celles qui sont déjà prises.
+    </p>
+    <div class="challenge">
+      <strong>Challenge :</strong> Le changement d'heure (été/hiver) en mars et octobre peut décaler les créneaux.
+      Un créneau de 14h peut devenir 15h si on ne gère pas bien les fuseaux horaires.
+    </div>
+    <div class="solution">
+      <strong>Solution :</strong> Toutes les heures sont calculées en timezone Europe/Paris avec la bibliothèque <code>date-fns-tz</code>.
+      14 tests unitaires vérifient que tout fonctionne : jour normal, jour plein, buffer entre RDV, changement d'heure,
+      délai minimum de 24h, fenêtre maximum de 2 semaines.
+    </div>
+    <div class="files">
+      Fichiers clés : <code>lib/availability/engine.ts</code> <code>lib/availability/types.ts</code> <code>__tests__/engine.test.ts</code>
+    </div>
+  </div>
+
+  <!-- Phase 3 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">3</div>
+      <div class="phase-title">Google Calendar Integration</div>
+      <span class="badge orange">API externe</span>
+    </div>
+    <p>
+      <strong>En simple :</strong> On connecte le moteur de disponibilité à ton vrai Google Calendar. Quand un prospect
+      visite la page, le système demande à Google "quand est-ce qu'Enzo est occupé ?" et calcule les créneaux libres.
+      Quand quelqu'un booke, le système crée automatiquement un événement dans ton calendrier.
+    </p>
+    <div class="challenge">
+      <strong>Challenge 1 :</strong> L'authentification Google est complexe (OAuth2, tokens qui expirent, refresh tokens).
+      Et deux personnes pourraient booker le même créneau en même temps (race condition).
+    </div>
+    <div class="challenge">
+      <strong>Challenge 2 :</strong> Turbopack (le compilateur rapide de Next.js) ne supporte pas la librairie de base de données.
+      Le build plantait.
+    </div>
+    <div class="solution">
+      <strong>Solution :</strong> Un script de setup que tu exécutes une seule fois pour obtenir ton refresh token Google.
+      Pour les bookings simultanés : le système re-vérifie Google Calendar juste avant de créer l'événement — si le créneau
+      a été pris entre-temps, il renvoie une erreur claire. Pour Turbopack : basculé sur Webpack classique pour le build.
+    </div>
+    <div class="files">
+      Fichiers clés : <code>lib/google-calendar/client.ts</code> <code>api/slots/route.ts</code> <code>api/book/route.ts</code> <code>scripts/get-refresh-token.ts</code>
+    </div>
+  </div>
+
+  <!-- Phase 4 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">4</div>
+      <div class="phase-title">Booking Page & Checklist</div>
+      <span class="badge green">Frontend</span>
+    </div>
+    <p>
+      <strong>En simple :</strong> La page que le prospect voit. D'abord, une mini page de vente qui explique
+      ce qu'il va obtenir pendant les 30 minutes (clarté, recommandations, prochaines étapes). Ensuite,
+      une checklist : "J'ai 30 minutes", "Je suis dans un endroit calme", "Je suis prêt(e) à parler".
+      Tant que les 3 ne sont pas cochées, impossible de voir les créneaux.
+    </p>
+    <div class="challenge">
+      <strong>Challenge :</strong> Le ton devait être chaleureux et personnel (coaching, pas vente agressive) tout en
+      restant cohérent avec le style du quiz burnout. C'est un équilibre subtil.
+    </div>
+    <div class="solution">
+      <strong>Solution :</strong> Texte en "vous" respectueux, bullet points clairs sur la valeur du coaching,
+      design crème minimaliste avec beaucoup d'espace. Les items de la checklist sont des cartes cliquables
+      avec une animation douce quand on les coche. Le bouton "Voir les créneaux" passe de grisé à actif
+      une fois tout validé.
+    </div>
+    <div class="files">
+      Fichiers clés : <code>page.tsx</code> <code>components/ChecklistItem.tsx</code>
+    </div>
+  </div>
+
+  <!-- Phase 5 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">5</div>
+      <div class="phase-title">Slot Picker</div>
+      <span class="badge green">Frontend</span>
+    </div>
+    <p>
+      <strong>En simple :</strong> Le sélecteur de créneaux. Le prospect voit les jours disponibles sous forme
+      de petits boutons horizontaux ("Mar 8 avr.", "Jeu 10 avr."). Il clique sur un jour et voit les heures
+      disponibles ("14:00", "14:30", "15:00"). Il choisit une heure.
+    </p>
+    <div class="challenge">
+      <strong>Challenge :</strong> Sur mobile, il faut que les jours soient scrollables horizontalement sans que
+      ça casse le design. Et les dates doivent être en français.
+    </div>
+    <div class="solution">
+      <strong>Solution :</strong> Les dates sont des "chips" (petits boutons arrondis) dans un conteneur scrollable
+      avec la scrollbar masquée. Les heures s'affichent en grille responsive (3-4 colonnes selon la largeur).
+      Tout est formaté en français avec <code>date-fns</code> locale fr.
+    </div>
+    <div class="files">
+      Fichiers clés : <code>components/SlotPicker.tsx</code> <code>components/DateChip.tsx</code> <code>components/TimeSlot.tsx</code>
+    </div>
+  </div>
+
+  <!-- Phase 6 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">6</div>
+      <div class="phase-title">Booking Submission</div>
+      <span class="badge green">Frontend + Backend</span>
+    </div>
+    <p>
+      <strong>En simple :</strong> Le formulaire final. Le prospect entre son prénom et son email, confirme,
+      et le système envoie la réservation. Ensuite, un bel écran de confirmation avec un checkmark vert
+      et tous les détails du rendez-vous.
+    </p>
+    <div class="challenge">
+      <strong>Challenge :</strong> Si deux personnes bookent le même créneau exactement au même moment,
+      il ne faut pas que les deux réussissent. Et si le créneau est pris, le message d'erreur doit être clair
+      et proposer de choisir un autre créneau.
+    </div>
+    <div class="solution">
+      <strong>Solution :</strong> Le serveur re-vérifie Google Calendar au moment de la soumission (pas juste à l'affichage).
+      Si le créneau a été pris entre-temps, le prospect voit "Ce créneau vient d'être réservé" avec un bouton
+      pour revenir au choix des créneaux. La page gère 4 états : checklist → choix → formulaire → confirmation.
+    </div>
+    <div class="files">
+      Fichiers clés : <code>components/BookingForm.tsx</code> <code>components/BookingConfirmation.tsx</code>
+    </div>
+  </div>
+
+  <!-- Phase 7 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">7</div>
+      <div class="phase-title">Notifications & Email</div>
+      <span class="badge orange">API externes</span>
+    </div>
+    <p>
+      <strong>En simple :</strong> Quand quelqu'un booke, deux choses se passent automatiquement :
+      1) Tu reçois un message Telegram avec le nom, l'email et l'heure du RDV.
+      2) Le prospect reçoit un email de confirmation avec tous les détails + un fichier .ics
+      qu'il peut cliquer pour ajouter le RDV à son calendrier.
+    </p>
+    <div class="challenge">
+      <strong>Challenge :</strong> Si l'envoi de l'email ou du message Telegram échoue (serveur Brevo en panne,
+      bot Telegram mal configuré), il ne faut PAS que ça casse la réservation du prospect. Le booking doit
+      toujours fonctionner.
+    </div>
+    <div class="solution">
+      <strong>Solution :</strong> Pattern "fire-and-forget" avec <code>Promise.allSettled</code>. Le système envoie
+      les notifications en parallèle APRÈS avoir confirmé le booking. Si une notification échoue, l'erreur est
+      loguée mais le prospect voit quand même sa confirmation. Le fichier .ics est généré côté serveur au format
+      iCalendar standard.
+    </div>
+    <div class="files">
+      Fichiers clés : <code>lib/notifications/telegram.ts</code> <code>lib/notifications/email.ts</code> <code>lib/notifications/ics.ts</code>
+    </div>
+  </div>
+
+  <!-- Phase 8 -->
+  <div class="phase">
+    <div class="phase-header">
+      <div class="phase-number">8</div>
+      <div class="phase-title">Dashboard & Reminders</div>
+      <span class="badge green">Admin + Cron</span>
+    </div>
+    <p>
+      <strong>En simple :</strong> Ton espace admin. Tu te connectes sur /dashboard avec un mot de passe,
+      et tu vois : tes RDV à venir, tes anciens RDV, et tu peux configurer tes plages horaires
+      (ajouter/supprimer des disponibilités). En bonus : un job automatique qui tourne toutes les heures
+      et envoie un email de rappel aux prospects 24h avant leur RDV.
+    </p>
+    <div class="challenge">
+      <strong>Challenge :</strong> Il fallait passer d'une config de disponibilité en dur dans le code à une config
+      dynamique stockée en base de données, sans casser l'API existante.
+    </div>
+    <div class="solution">
+      <strong>Solution :</strong> Nouvelle table <code>availability_windows</code> dans la base de données. L'API /api/slots
+      lit d'abord la config en base ; si rien n'est configuré, elle utilise la config par défaut.
+      Le dashboard est en thème sombre (pour toi, pas les prospects) avec une interface simple pour gérer
+      les disponibilités. Le cron de rappel tourne via Vercel Cron (gratuit) toutes les heures.
+    </div>
+    <div class="files">
+      Fichiers clés : <code>dashboard/page.tsx</code> <code>dashboard/availability/page.tsx</code> <code>api/cron/reminders/route.ts</code> <code>middleware.ts</code>
+    </div>
+  </div>
+
+  <h2>Stack technique</h2>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-value" style="font-size:1.2rem">Next.js 15</div>
+      <div class="stat-label">Framework web</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" style="font-size:1.2rem">Turso</div>
+      <div class="stat-label">Base de données</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" style="font-size:1.2rem">Brevo</div>
+      <div class="stat-label">Emails</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" style="font-size:1.2rem">Telegram</div>
+      <div class="stat-label">Notifications</div>
+    </div>
+  </div>
+
+  <h2>Ce qu'il te reste à faire</h2>
+
+  <div class="todo">
+    <h3>1. Google Cloud Setup (obligatoire)</h3>
+    <ol>
+      <li>Crée un projet sur <a href="https://console.cloud.google.com">Google Cloud Console</a></li>
+      <li>Active l'API Google Calendar</li>
+      <li>Crée des identifiants OAuth 2.0 (type: application de bureau)</li>
+      <li>Exécute le script : <code>npx tsx scripts/get-refresh-token.ts</code></li>
+      <li>Copie le refresh token dans ton fichier <code>.env.local</code></li>
+    </ol>
+  </div>
+
+  <div class="todo">
+    <h3>2. Turso Database (obligatoire)</h3>
+    <ol>
+      <li>Crée un compte sur <a href="https://turso.tech">turso.tech</a> (gratuit)</li>
+      <li>Crée une base de données</li>
+      <li>Copie l'URL et le token dans <code>.env.local</code></li>
+      <li>Exécute : <code>npx drizzle-kit push</code> pour créer les tables</li>
+    </ol>
+  </div>
+
+  <div class="todo">
+    <h3>3. Telegram Bot (obligatoire)</h3>
+    <ol>
+      <li>Parle à <a href="https://t.me/BotFather">@BotFather</a> sur Telegram</li>
+      <li>Crée un bot et récupère le token</li>
+      <li>Envoie un message à ton bot, récupère ton chat_id</li>
+      <li>Ajoute TELEGRAM_BOT_TOKEN et TELEGRAM_CHAT_ID dans <code>.env.local</code></li>
+    </ol>
+  </div>
+
+  <div class="todo">
+    <h3>4. Variables d'environnement</h3>
+    <p>Remplis toutes les variables dans <code>.env.local</code> :</p>
+    <ul>
+      <li><code>TURSO_DATABASE_URL</code> / <code>TURSO_AUTH_TOKEN</code></li>
+      <li><code>GOOGLE_CLIENT_ID</code> / <code>GOOGLE_CLIENT_SECRET</code> / <code>GOOGLE_REFRESH_TOKEN</code> / <code>GOOGLE_CALENDAR_ID</code></li>
+      <li><code>TELEGRAM_BOT_TOKEN</code> / <code>TELEGRAM_CHAT_ID</code></li>
+      <li><code>BREVO_API_KEY</code> (tu l'as déjà : xkeysib-844...)</li>
+      <li><code>DASHBOARD_PASSWORD</code> (choisis un mot de passe)</li>
+      <li><code>CRON_SECRET</code> (une chaîne aléatoire)</li>
+    </ul>
+  </div>
+
+  <div class="todo">
+    <h3>5. Déploiement Vercel</h3>
+    <ol>
+      <li>Pousse le repo sur GitHub</li>
+      <li>Connecte le repo à Vercel</li>
+      <li>Ajoute toutes les variables d'environnement dans Vercel</li>
+      <li>Pointe ton domaine remidene-enzo vers Vercel (DNS Squarespace)</li>
+      <li>Teste la page de booking en prod</li>
+    </ol>
+  </div>
+
+  <div class="footer">
+    <p>Généré automatiquement par Claude — 6 avril 2026</p>
+    <p>Projet : /Users/Enzo/calendlybyEnzo/ · 8 phases · 21 requirements · 32 fichiers</p>
+  </div>
+
+</body>
+</html>
