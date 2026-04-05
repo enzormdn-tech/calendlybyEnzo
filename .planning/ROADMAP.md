@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Tailwind is configured with burnout-quiz design tokens (--bg: #fafaf8, --text: #1c1c1c, --sub: #6b6b6b, --border: #e5e3df, --accent: #1c1c1c, --btn-idle: #f0eeeb, --btn-hover: #e8e4df)
 **Plans**: 1 plan
 Plans:
-- [ ] 01-01-PLAN.md — Scaffold Next.js 15 with burnout-quiz cream theme, Inter font, Tailwind tokens, and Drizzle ORM setup
+- [x] 01-01-PLAN.md — Scaffold Next.js 15 with burnout-quiz cream theme, Inter font, Tailwind tokens, and Drizzle ORM setup
 **UI hint**: yes
 
 ### Phase 2: Availability Engine

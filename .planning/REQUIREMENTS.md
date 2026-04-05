@@ -10,8 +10,8 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Booking Page (Sales)
 
 - [ ] **PAGE-01**: Prospect lands on a mini sales page explaining what to expect during the 30min mini-coaching
-- [ ] **PAGE-02**: Page follows cream/light minimalist design (Inter 300/400, #fafaf8 bg, #1c1c1c text) consistent with burnout-quiz style
-- [ ] **PAGE-03**: Page is mobile-first and fully responsive
+- [x] **PAGE-02**: Page follows cream/light minimalist design (Inter 300/400, #fafaf8 bg, #1c1c1c text) consistent with burnout-quiz style
+- [x] **PAGE-03**: Page is mobile-first and fully responsive
 
 ### Readiness Checklist
 
@@ -91,8 +91,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | PAGE-01 | Phase 4 | Pending |
-| PAGE-02 | Phase 1 | Pending |
-| PAGE-03 | Phase 1 | Pending |
+| PAGE-02 | Phase 1 | Complete |
+| PAGE-03 | Phase 1 | Complete |
 | CHECK-01 | Phase 4 | Pending |
 | CHECK-02 | Phase 4 | Pending |
 | AVAIL-01 | Phase 8 | Pending |
