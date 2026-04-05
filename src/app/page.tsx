@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ChecklistItem from "@/components/ChecklistItem";
+import SlotPicker from "@/components/SlotPicker";
+import type { SelectedSlot } from "@/components/SlotPicker";
 
 const CHECKLIST_ITEMS = [
   { id: "time", label: "J'ai 30 minutes devant moi" },
@@ -18,8 +20,22 @@ export default function BookingPage() {
     quiet: false,
     ready: false,
   });
+  const [showSlots, setShowSlots] = useState(false);
+  const [selectedSlot, setSelectedSlot] = useState<SelectedSlot | null>(null);
+  const slotPickerRef = useRef<HTMLDivElement>(null);
 
   const allChecked = CHECKLIST_ITEMS.every((item) => checked[item.id]);
+
+  function handleShowSlots() {
+    setShowSlots(true);
+    // Scroll to slot picker after render
+    setTimeout(() => {
+      slotPickerRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
+  }
 
   function toggleItem(id: string) {
     setChecked((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -102,31 +118,44 @@ export default function BookingPage() {
       </section>
 
       {/* ── CTA Button ── */}
-      <section className="flex flex-col items-center">
-        <button
-          type="button"
-          disabled={!allChecked}
-          className={`
-            inline-flex items-center justify-center
-            px-9 py-4 rounded-full
-            font-normal text-[15px] tracking-[0.01em]
-            transition-all duration-300 ease-out
-            ${
-              allChecked
-                ? "bg-accent text-bg cursor-pointer hover:opacity-[0.82] hover:-translate-y-px active:translate-y-0 active:opacity-100"
-                : "bg-btn-idle text-sub cursor-not-allowed opacity-60"
-            }
-          `}
-        >
-          Voir les creneaux disponibles
-        </button>
+      {!showSlots && (
+        <section className="flex flex-col items-center">
+          <button
+            type="button"
+            disabled={!allChecked}
+            onClick={handleShowSlots}
+            className={`
+              inline-flex items-center justify-center
+              px-9 py-4 rounded-full
+              font-normal text-[15px] tracking-[0.01em]
+              transition-all duration-300 ease-out
+              ${
+                allChecked
+                  ? "bg-accent text-bg cursor-pointer hover:opacity-[0.82] hover:-translate-y-px active:translate-y-0 active:opacity-100"
+                  : "bg-btn-idle text-sub cursor-not-allowed opacity-60"
+              }
+            `}
+          >
+            Voir les creneaux disponibles
+          </button>
 
-        {!allChecked && (
-          <p className="text-[11px] text-border tracking-[0.02em] mt-3 transition-opacity duration-300">
-            Coche les 3 cases pour continuer
-          </p>
-        )}
-      </section>
+          {!allChecked && (
+            <p className="text-[11px] text-border tracking-[0.02em] mt-3 transition-opacity duration-300">
+              Coche les 3 cases pour continuer
+            </p>
+          )}
+        </section>
+      )}
+
+      {/* ── Slot Picker ── */}
+      {showSlots && (
+        <section
+          ref={slotPickerRef}
+          className="mb-10 animate-fade-in"
+        >
+          <SlotPicker onSelect={setSelectedSlot} />
+        </section>
+      )}
 
       {/* ── Footer ── */}
       <footer className="mt-20 pt-5 border-t border-border text-center">
