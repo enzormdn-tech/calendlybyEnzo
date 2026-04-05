@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: verifying
-stopped_at: Completed 01-01-PLAN.md
-last_updated: "2026-04-05T22:10:16.803Z"
+stopped_at: Completed 02-01-PLAN.md
+last_updated: "2026-04-05T22:16:06.012Z"
 last_activity: 2026-04-05
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 1
-  completed_plans: 1
+  completed_plans: 2
   percent: 100
 ---
 
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01-project-setup P01 | 4min | 2 tasks | 15 files |
+| Phase 02 P01 | 3min | 5 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,9 @@ Recent decisions affecting current work:
 - OAuth refresh token must be production mode from day one (testing tokens expire in 7 days)
 - [Phase 01-project-setup]: Tailwind v4 CSS-based config via @theme directive -- no tailwind.config.ts needed
 - [Phase 01-project-setup]: Inter font via next/font/google with weights 300 (body) and 400 (headings)
+- [Phase 02]: Zod v4 with zod/v4 import path for schema validation
+- [Phase 02]: Pure function pattern: engine takes (config, busyPeriods, now?) with injectable now for testing
+- [Phase 02]: Buffer enforcement expands busy boundaries by bufferMinutes in both directions
 
 ### Pending Todos
 
@@ -78,6 +82,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-05T22:10:16.801Z
-Stopped at: Completed 01-01-PLAN.md
+Last session: 2026-04-05T22:16:06.010Z
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None

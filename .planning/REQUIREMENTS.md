@@ -21,10 +21,10 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Availability & Slots
 
 - [ ] **AVAIL-01**: Enzo defines availability windows from a dashboard (e.g., Tue/Thu 14h-18h)
-- [ ] **AVAIL-02**: Available slots are computed from availability windows minus Google Calendar busy times
-- [ ] **AVAIL-03**: Buffer time (15min) is enforced between bookings
-- [ ] **AVAIL-04**: Minimum scheduling notice enforced (24h)
-- [ ] **AVAIL-05**: Maximum future booking window enforced (2 weeks)
+- [x] **AVAIL-02**: Available slots are computed from availability windows minus Google Calendar busy times
+- [x] **AVAIL-03**: Buffer time (15min) is enforced between bookings
+- [x] **AVAIL-04**: Minimum scheduling notice enforced (24h)
+- [x] **AVAIL-05**: Maximum future booking window enforced (2 weeks)
 - [ ] **AVAIL-06**: Prospect sees available slots by day and selects one
 
 ### Booking
@@ -96,10 +96,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CHECK-01 | Phase 4 | Pending |
 | CHECK-02 | Phase 4 | Pending |
 | AVAIL-01 | Phase 8 | Pending |
-| AVAIL-02 | Phase 2 | Pending |
-| AVAIL-03 | Phase 2 | Pending |
-| AVAIL-04 | Phase 2 | Pending |
-| AVAIL-05 | Phase 2 | Pending |
+| AVAIL-02 | Phase 2 | Complete |
+| AVAIL-03 | Phase 2 | Complete |
+| AVAIL-04 | Phase 2 | Complete |
+| AVAIL-05 | Phase 2 | Complete |
 | AVAIL-06 | Phase 5 | Pending |
 | BOOK-01 | Phase 6 | Pending |
 | BOOK-02 | Phase 6 | Pending |
