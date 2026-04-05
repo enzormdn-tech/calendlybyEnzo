@@ -25,7 +25,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **AVAIL-03**: Buffer time (15min) is enforced between bookings
 - [x] **AVAIL-04**: Minimum scheduling notice enforced (24h)
 - [x] **AVAIL-05**: Maximum future booking window enforced (2 weeks)
-- [ ] **AVAIL-06**: Prospect sees available slots by day and selects one
+- [x] **AVAIL-06**: Prospect sees available slots by day and selects one
 
 ### Booking
 
@@ -100,7 +100,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AVAIL-03 | Phase 2 | Complete |
 | AVAIL-04 | Phase 2 | Complete |
 | AVAIL-05 | Phase 2 | Complete |
-| AVAIL-06 | Phase 5 | Pending |
+| AVAIL-06 | Phase 5 | Complete |
 | BOOK-01 | Phase 6 | Pending |
 | BOOK-02 | Phase 6 | Pending |
 | BOOK-03 | Phase 3 | Complete |
