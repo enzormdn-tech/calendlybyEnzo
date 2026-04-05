@@ -50,7 +50,7 @@ A prospect can book a discovery call in under 2 minutes — no friction, no back
 - **Auth**: No prospect auth needed — booking is anonymous (name + email only)
 - **Calendar**: Google Calendar API for availability checking and event creation
 - **Notifications**: Telegram Bot API for instant notifications to Enzo
-- **Email**: Transactional email service for confirmation + reminder
+- **Email**: Brevo (existing account) — sender: contact@remidene-enzo.com, name: "Mini-Coaching Remidene Enzo"
 - **Domain**: remidene-enzo (Squarespace domain, DNS pointed to Vercel)
 - **Hosting**: Vercel (deployment config in Phase 1 or first deploy)
 - **Design**: Cream/light theme (burnout-quiz style: #fafaf8 bg, #1c1c1c text, Inter 300/400), minimalist, mobile-first
