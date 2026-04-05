@@ -3,6 +3,7 @@ import { z } from "zod/v4";
 import { getFreeBusyPeriods, createBookingEvent } from "@/lib/google-calendar";
 import { db } from "@/db";
 import { bookings } from "@/db/schema";
+import { sendTelegramNotification, sendConfirmationEmail } from "@/lib/notifications";
 
 /** Request body schema for booking a slot */
 const bookingRequestSchema = z.object({
@@ -80,6 +81,20 @@ export async function POST(request: Request) {
       startTime,
       endTime,
       status: "confirmed",
+    });
+
+    // Fire-and-forget: send notifications without blocking the response
+    // Notification failures must never break the booking flow
+    const bookingInfo = { name, email, startTime, endTime };
+    Promise.allSettled([
+      sendTelegramNotification(bookingInfo),
+      sendConfirmationEmail(bookingInfo),
+    ]).then((results) => {
+      for (const result of results) {
+        if (result.status === "rejected") {
+          console.error("[Notifications] Unexpected rejection:", result.reason);
+        }
+      }
     });
 
     return NextResponse.json(
