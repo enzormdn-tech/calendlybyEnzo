@@ -31,7 +31,9 @@ Decimal phases appear between their surrounding integers in numeric order.
   1. Next.js dev server starts and renders a page with burnout-quiz cream theme (#fafaf8 background, #1c1c1c text, Inter font weight 300/400). Reference: `/Users/Enzo/burnout-quiz/style.css`
   2. Page is mobile-first and fully responsive across phone, tablet, and desktop viewports
   3. Tailwind is configured with burnout-quiz design tokens (--bg: #fafaf8, --text: #1c1c1c, --sub: #6b6b6b, --border: #e5e3df, --accent: #1c1c1c, --btn-idle: #f0eeeb, --btn-hover: #e8e4df)
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold Next.js 15 with burnout-quiz cream theme, Inter font, Tailwind tokens, and Drizzle ORM setup
 **UI hint**: yes
 
 ### Phase 2: Availability Engine
@@ -121,7 +123,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Project Setup | 0/0 | Not started | - |
+| 1. Project Setup | 0/1 | Planning complete | - |
 | 2. Availability Engine | 0/0 | Not started | - |
 | 3. Google Calendar Integration | 0/0 | Not started | - |
 | 4. Booking Page & Checklist | 0/0 | Not started | - |
