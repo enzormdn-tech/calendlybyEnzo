@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: verifying
-stopped_at: Completed 06-01-PLAN.md
-last_updated: "2026-04-05T22:37:35.714Z"
+stopped_at: Completed 07-01 notifications-email
+last_updated: "2026-04-05T22:43:00.497Z"
 last_activity: 2026-04-05
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 1
-  completed_plans: 6
+  completed_plans: 7
   percent: 100
 ---
 
@@ -58,6 +58,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 04 P01 | 1min | 1 tasks | 2 files |
 | Phase 05 P01 | 3min | 1 tasks | 5 files |
 | Phase 06 P01 | 3min | 4 tasks | 4 files |
+| Phase 07 P01 | 2min | 7 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -82,6 +83,8 @@ Recent decisions affecting current work:
 - [Phase 05]: Two-step slot selection: date chips then time grid, single fetch on mount
 - [Phase 06]: Standalone pages for booking/confirmation steps (no sales section clutter)
 - [Phase 06]: Flow state machine: checklist | picking | booking | confirmed
+- [Phase 07]: Brevo SMTP API for transactional email (not Resend)
+- [Phase 07]: Fire-and-forget notifications via Promise.allSettled — never blocks booking response
 
 ### Pending Todos
 
@@ -94,6 +97,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-05T22:37:35.711Z
-Stopped at: Completed 06-01-PLAN.md
+Last session: 2026-04-05T22:43:00.494Z
+Stopped at: Completed 07-01 notifications-email
 Resume file: None

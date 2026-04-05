@@ -36,12 +36,12 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Confirmation
 
 - [x] **CONF-01**: Prospect sees a confirmation screen with date, time, and what to expect
-- [ ] **CONF-02**: Prospect receives a confirmation email with date, time, details, and .ics file
+- [x] **CONF-02**: Prospect receives a confirmation email with date, time, details, and .ics file
 - [ ] **CONF-03**: Prospect receives a reminder email 24h before the scheduled call
 
 ### Notifications
 
-- [ ] **NOTIF-01**: Enzo receives a Telegram notification on new booking (name, email, date/time)
+- [x] **NOTIF-01**: Enzo receives a Telegram notification on new booking (name, email, date/time)
 
 ### Dashboard (Enzo OS)
 
@@ -105,9 +105,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BOOK-02 | Phase 6 | Complete |
 | BOOK-03 | Phase 3 | Complete |
 | CONF-01 | Phase 6 | Complete |
-| CONF-02 | Phase 7 | Pending |
+| CONF-02 | Phase 7 | Complete |
 | CONF-03 | Phase 8 | Pending |
-| NOTIF-01 | Phase 7 | Pending |
+| NOTIF-01 | Phase 7 | Complete |
 | DASH-01 | Phase 8 | Pending |
 | DASH-02 | Phase 8 | Pending |
 | DASH-03 | Phase 8 | Pending |
