@@ -10,7 +10,7 @@ Requirements for initial release. Each maps to roadmap phases.
 ### Booking Page (Sales)
 
 - [ ] **PAGE-01**: Prospect lands on a mini sales page explaining what to expect during the 30min mini-coaching
-- [ ] **PAGE-02**: Page follows dark/minimalist design (Inter, #0f0f0f) consistent with Enzo's brand
+- [ ] **PAGE-02**: Page follows cream/light minimalist design (Inter 300/400, #fafaf8 bg, #1c1c1c text) consistent with burnout-quiz style
 - [ ] **PAGE-03**: Page is mobile-first and fully responsive
 
 ### Readiness Checklist
@@ -90,33 +90,33 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PAGE-01 | — | Pending |
-| PAGE-02 | — | Pending |
-| PAGE-03 | — | Pending |
-| CHECK-01 | — | Pending |
-| CHECK-02 | — | Pending |
-| AVAIL-01 | — | Pending |
-| AVAIL-02 | — | Pending |
-| AVAIL-03 | — | Pending |
-| AVAIL-04 | — | Pending |
-| AVAIL-05 | — | Pending |
-| AVAIL-06 | — | Pending |
-| BOOK-01 | — | Pending |
-| BOOK-02 | — | Pending |
-| BOOK-03 | — | Pending |
-| CONF-01 | — | Pending |
-| CONF-02 | — | Pending |
-| CONF-03 | — | Pending |
-| NOTIF-01 | — | Pending |
-| DASH-01 | — | Pending |
-| DASH-02 | — | Pending |
-| DASH-03 | — | Pending |
+| PAGE-01 | Phase 4 | Pending |
+| PAGE-02 | Phase 1 | Pending |
+| PAGE-03 | Phase 1 | Pending |
+| CHECK-01 | Phase 4 | Pending |
+| CHECK-02 | Phase 4 | Pending |
+| AVAIL-01 | Phase 8 | Pending |
+| AVAIL-02 | Phase 2 | Pending |
+| AVAIL-03 | Phase 2 | Pending |
+| AVAIL-04 | Phase 2 | Pending |
+| AVAIL-05 | Phase 2 | Pending |
+| AVAIL-06 | Phase 5 | Pending |
+| BOOK-01 | Phase 6 | Pending |
+| BOOK-02 | Phase 6 | Pending |
+| BOOK-03 | Phase 3 | Pending |
+| CONF-01 | Phase 6 | Pending |
+| CONF-02 | Phase 7 | Pending |
+| CONF-03 | Phase 8 | Pending |
+| NOTIF-01 | Phase 7 | Pending |
+| DASH-01 | Phase 8 | Pending |
+| DASH-02 | Phase 8 | Pending |
+| DASH-03 | Phase 8 | Pending |
 
 **Coverage:**
 - v1 requirements: 21 total
-- Mapped to phases: 0
-- Unmapped: 21 ⚠️
+- Mapped to phases: 21
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-05*
-*Last updated: 2026-04-05 after initial definition*
+*Last updated: 2026-04-05 after roadmap creation*

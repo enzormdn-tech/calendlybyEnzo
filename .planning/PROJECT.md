@@ -42,7 +42,7 @@ A prospect can book a discovery call in under 2 minutes — no friction, no back
 - The booking page is the final step in a funnel: burnout quiz → results → CTA → book a call
 - Must feel premium and personal — not a generic SaaS tool
 - Connects to Enzo OS ecosystem (dashboard, Telegram notifications)
-- Dark, minimalist design consistent with Enzo's brand (Inter font, #0f0f0f background)
+- Cream/light minimalist design using burnout-quiz style (Inter font 300/400, #fafaf8 background, #1c1c1c text). Reference: `/Users/Enzo/burnout-quiz/style.css`
 
 ## Constraints
 
@@ -51,8 +51,9 @@ A prospect can book a discovery call in under 2 minutes — no friction, no back
 - **Calendar**: Google Calendar API for availability checking and event creation
 - **Notifications**: Telegram Bot API for instant notifications to Enzo
 - **Email**: Transactional email service for confirmation + reminder
-- **Domain**: Hosted on Enzo's own domain
-- **Design**: Dark theme, minimalist, mobile-first — consistent with existing brand
+- **Domain**: remidene-enzo (Squarespace domain, DNS pointed to Vercel)
+- **Hosting**: Vercel (deployment config in Phase 1 or first deploy)
+- **Design**: Cream/light theme (burnout-quiz style: #fafaf8 bg, #1c1c1c text, Inter 300/400), minimalist, mobile-first
 
 ## Key Decisions
 
