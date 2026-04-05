@@ -3,7 +3,17 @@
 import { useRef, useState } from "react";
 import ChecklistItem from "@/components/ChecklistItem";
 import SlotPicker from "@/components/SlotPicker";
+import BookingForm from "@/components/BookingForm";
+import BookingConfirmation from "@/components/BookingConfirmation";
 import type { SelectedSlot } from "@/components/SlotPicker";
+
+type FlowStep = "checklist" | "picking" | "booking" | "confirmed";
+
+interface BookingDetails {
+  name: string;
+  startTime: string;
+  endTime: string;
+}
 
 const CHECKLIST_ITEMS = [
   { id: "time", label: "J'ai 30 minutes devant moi" },
@@ -20,14 +30,15 @@ export default function BookingPage() {
     quiet: false,
     ready: false,
   });
-  const [showSlots, setShowSlots] = useState(false);
+  const [flowStep, setFlowStep] = useState<FlowStep>("checklist");
   const [selectedSlot, setSelectedSlot] = useState<SelectedSlot | null>(null);
+  const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(null);
   const slotPickerRef = useRef<HTMLDivElement>(null);
 
   const allChecked = CHECKLIST_ITEMS.every((item) => checked[item.id]);
 
   function handleShowSlots() {
-    setShowSlots(true);
+    setFlowStep("picking");
     // Scroll to slot picker after render
     setTimeout(() => {
       slotPickerRef.current?.scrollIntoView({
@@ -37,8 +48,82 @@ export default function BookingPage() {
     }, 100);
   }
 
+  function handleSlotSelected(slot: SelectedSlot | null) {
+    setSelectedSlot(slot);
+    if (slot) {
+      setFlowStep("booking");
+      // Scroll to top for the booking form
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
+    }
+  }
+
+  function handleBookingBack() {
+    setSelectedSlot(null);
+    setFlowStep("picking");
+    setTimeout(() => {
+      slotPickerRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 100);
+  }
+
+  function handleBookingSuccess(details: BookingDetails) {
+    setBookingDetails(details);
+    setFlowStep("confirmed");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function toggleItem(id: string) {
     setChecked((prev) => ({ ...prev, [id]: !prev[id] }));
+  }
+
+  // Confirmation screen — standalone, no sales content
+  if (flowStep === "confirmed" && bookingDetails) {
+    return (
+      <main className="max-w-[680px] mx-auto px-7 py-16 md:py-24">
+        <BookingConfirmation
+          name={bookingDetails.name}
+          startTime={bookingDetails.startTime}
+        />
+
+        <footer className="mt-20 pt-5 border-t border-border text-center">
+          <p className="text-[11px] text-border tracking-[0.02em] leading-[1.55]">
+            Enzo Remidene &middot; Coaching personnel
+          </p>
+        </footer>
+      </main>
+    );
+  }
+
+  // Booking form — standalone, no sales content
+  if (flowStep === "booking" && selectedSlot) {
+    return (
+      <main className="max-w-[680px] mx-auto px-7 py-16 md:py-24">
+        <section className="flex flex-col items-center text-center gap-3.5 mb-10">
+          <h1 className="text-2xl md:text-[28px] font-normal tracking-[-0.02em] leading-[1.2]">
+            Plus qu&apos;une etape.
+          </h1>
+          <p className="text-sub text-[15px] leading-relaxed max-w-[380px]">
+            Renseignez vos coordonnees pour confirmer votre creneau.
+          </p>
+        </section>
+
+        <BookingForm
+          selectedSlot={selectedSlot}
+          onBack={handleBookingBack}
+          onSuccess={handleBookingSuccess}
+        />
+
+        <footer className="mt-20 pt-5 border-t border-border text-center">
+          <p className="text-[11px] text-border tracking-[0.02em] leading-[1.55]">
+            Enzo Remidene &middot; Coaching personnel
+          </p>
+        </footer>
+      </main>
+    );
   }
 
   return (
@@ -118,7 +203,7 @@ export default function BookingPage() {
       </section>
 
       {/* ── CTA Button ── */}
-      {!showSlots && (
+      {flowStep === "checklist" && (
         <section className="flex flex-col items-center">
           <button
             type="button"
@@ -148,12 +233,12 @@ export default function BookingPage() {
       )}
 
       {/* ── Slot Picker ── */}
-      {showSlots && (
+      {flowStep === "picking" && (
         <section
           ref={slotPickerRef}
           className="mb-10 animate-fade-in"
         >
-          <SlotPicker onSelect={setSelectedSlot} />
+          <SlotPicker onSelect={handleSlotSelected} />
         </section>
       )}
 
