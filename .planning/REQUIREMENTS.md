@@ -31,7 +31,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [ ] **BOOK-01**: Prospect provides name + email to confirm booking
 - [ ] **BOOK-02**: System re-checks Google Calendar before confirming (race condition prevention)
-- [ ] **BOOK-03**: Booking creates an event in Enzo's Google Calendar with prospect details
+- [x] **BOOK-03**: Booking creates an event in Enzo's Google Calendar with prospect details
 
 ### Confirmation
 
@@ -103,7 +103,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AVAIL-06 | Phase 5 | Pending |
 | BOOK-01 | Phase 6 | Pending |
 | BOOK-02 | Phase 6 | Pending |
-| BOOK-03 | Phase 3 | Pending |
+| BOOK-03 | Phase 3 | Complete |
 | CONF-01 | Phase 6 | Pending |
 | CONF-02 | Phase 7 | Pending |
 | CONF-03 | Phase 8 | Pending |
