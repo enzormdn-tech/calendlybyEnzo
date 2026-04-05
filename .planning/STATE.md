@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: verifying
-stopped_at: Completed 05-01-PLAN.md
-last_updated: "2026-04-05T22:32:32.876Z"
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-04-05T22:37:35.714Z"
 last_activity: 2026-04-05
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 1
-  completed_plans: 5
+  completed_plans: 6
   percent: 100
 ---
 
@@ -57,6 +57,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03 P01 | 4min | 9 tasks | 9 files |
 | Phase 04 P01 | 1min | 1 tasks | 2 files |
 | Phase 05 P01 | 3min | 1 tasks | 5 files |
+| Phase 06 P01 | 3min | 4 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,8 @@ Recent decisions affecting current work:
 - [Phase 04]: Checklist items as button elements with aria-pressed for accessibility
 - [Phase 04]: Tutoiement (tu) consistent with burnout-quiz tone
 - [Phase 05]: Two-step slot selection: date chips then time grid, single fetch on mount
+- [Phase 06]: Standalone pages for booking/confirmation steps (no sales section clutter)
+- [Phase 06]: Flow state machine: checklist | picking | booking | confirmed
 
 ### Pending Todos
 
@@ -91,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-05T22:32:32.873Z
-Stopped at: Completed 05-01-PLAN.md
+Last session: 2026-04-05T22:37:35.711Z
+Stopped at: Completed 06-01-PLAN.md
 Resume file: None
