@@ -20,7 +20,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Availability & Slots
 
-- [ ] **AVAIL-01**: Enzo defines availability windows from a dashboard (e.g., Tue/Thu 14h-18h)
+- [x] **AVAIL-01**: Enzo defines availability windows from a dashboard (e.g., Tue/Thu 14h-18h)
 - [x] **AVAIL-02**: Available slots are computed from availability windows minus Google Calendar busy times
 - [x] **AVAIL-03**: Buffer time (15min) is enforced between bookings
 - [x] **AVAIL-04**: Minimum scheduling notice enforced (24h)
@@ -37,7 +37,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **CONF-01**: Prospect sees a confirmation screen with date, time, and what to expect
 - [x] **CONF-02**: Prospect receives a confirmation email with date, time, details, and .ics file
-- [ ] **CONF-03**: Prospect receives a reminder email 24h before the scheduled call
+- [x] **CONF-03**: Prospect receives a reminder email 24h before the scheduled call
 
 ### Notifications
 
@@ -45,9 +45,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Dashboard (Enzo OS)
 
-- [ ] **DASH-01**: Dashboard shows list of upcoming bookings
-- [ ] **DASH-02**: Dashboard shows history of past bookings
-- [ ] **DASH-03**: Dashboard allows configuring availability windows
+- [x] **DASH-01**: Dashboard shows list of upcoming bookings
+- [x] **DASH-02**: Dashboard shows history of past bookings
+- [x] **DASH-03**: Dashboard allows configuring availability windows
 
 ## v2 Requirements
 
@@ -95,7 +95,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PAGE-03 | Phase 1 | Complete |
 | CHECK-01 | Phase 4 | Complete |
 | CHECK-02 | Phase 4 | Complete |
-| AVAIL-01 | Phase 8 | Pending |
+| AVAIL-01 | Phase 8 | Complete |
 | AVAIL-02 | Phase 2 | Complete |
 | AVAIL-03 | Phase 2 | Complete |
 | AVAIL-04 | Phase 2 | Complete |
@@ -106,11 +106,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BOOK-03 | Phase 3 | Complete |
 | CONF-01 | Phase 6 | Complete |
 | CONF-02 | Phase 7 | Complete |
-| CONF-03 | Phase 8 | Pending |
+| CONF-03 | Phase 8 | Complete |
 | NOTIF-01 | Phase 7 | Complete |
-| DASH-01 | Phase 8 | Pending |
-| DASH-02 | Phase 8 | Pending |
-| DASH-03 | Phase 8 | Pending |
+| DASH-01 | Phase 8 | Complete |
+| DASH-02 | Phase 8 | Complete |
+| DASH-03 | Phase 8 | Complete |
 
 **Coverage:**
 - v1 requirements: 21 total

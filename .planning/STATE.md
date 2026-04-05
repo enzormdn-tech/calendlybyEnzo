@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: verifying
-stopped_at: Completed 07-01 notifications-email
-last_updated: "2026-04-05T22:43:00.497Z"
+stopped_at: Completed 08-01 dashboard-reminders
+last_updated: "2026-04-05T22:50:04.863Z"
 last_activity: 2026-04-05
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 1
-  completed_plans: 7
+  completed_plans: 8
   percent: 100
 ---
 
@@ -59,6 +59,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 05 P01 | 3min | 1 tasks | 5 files |
 | Phase 06 P01 | 3min | 4 tasks | 4 files |
 | Phase 07 P01 | 2min | 7 tasks | 6 files |
+| Phase 08 P01 | 3min | 12 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,10 @@ Recent decisions affecting current work:
 - [Phase 06]: Flow state machine: checklist | picking | booking | confirmed
 - [Phase 07]: Brevo SMTP API for transactional email (not Resend)
 - [Phase 07]: Fire-and-forget notifications via Promise.allSettled — never blocks booking response
+- [Phase 08]: Dark theme dashboard inverted from prospect page (#1c1c1c bg)
+- [Phase 08]: Simple cookie-based password auth via middleware (no NextAuth)
+- [Phase 08]: DB-driven availability with fallback to DEFAULT_CONFIG
+- [Phase 08]: Hourly Vercel Cron for reminders with CRON_SECRET bearer token
 
 ### Pending Todos
 
@@ -97,6 +102,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-05T22:43:00.494Z
-Stopped at: Completed 07-01 notifications-email
+Last session: 2026-04-05T22:50:04.861Z
+Stopped at: Completed 08-01 dashboard-reminders
 Resume file: None
