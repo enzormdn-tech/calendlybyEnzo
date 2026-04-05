@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: verifying
-stopped_at: Completed 03-01-PLAN.md
-last_updated: "2026-04-05T22:23:06.148Z"
+stopped_at: Completed 04-01-PLAN.md
+last_updated: "2026-04-05T22:27:22.511Z"
 last_activity: 2026-04-05
 progress:
   total_phases: 8
   completed_phases: 1
   total_plans: 1
-  completed_plans: 3
+  completed_plans: 4
   percent: 100
 ---
 
@@ -55,6 +55,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-project-setup P01 | 4min | 2 tasks | 15 files |
 | Phase 02 P01 | 3min | 5 tasks | 6 files |
 | Phase 03 P01 | 4min | 9 tasks | 9 files |
+| Phase 04 P01 | 1min | 1 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -74,6 +75,8 @@ Recent decisions affecting current work:
 - [Phase 03]: FreeBusy API for availability (not events.list) -- avoids private data leakage
 - [Phase 03]: Race condition guard: re-check FreeBusy in POST /api/book before creating event
 - [Phase 03]: Build script uses webpack (not turbopack) due to @libsql LICENSE parsing bug
+- [Phase 04]: Checklist items as button elements with aria-pressed for accessibility
+- [Phase 04]: Tutoiement (tu) consistent with burnout-quiz tone
 
 ### Pending Todos
 
@@ -86,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-05T22:23:06.145Z
-Stopped at: Completed 03-01-PLAN.md
+Last session: 2026-04-05T22:27:22.509Z
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None

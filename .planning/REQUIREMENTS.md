@@ -9,14 +9,14 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Booking Page (Sales)
 
-- [ ] **PAGE-01**: Prospect lands on a mini sales page explaining what to expect during the 30min mini-coaching
+- [x] **PAGE-01**: Prospect lands on a mini sales page explaining what to expect during the 30min mini-coaching
 - [x] **PAGE-02**: Page follows cream/light minimalist design (Inter 300/400, #fafaf8 bg, #1c1c1c text) consistent with burnout-quiz style
 - [x] **PAGE-03**: Page is mobile-first and fully responsive
 
 ### Readiness Checklist
 
-- [ ] **CHECK-01**: Prospect sees a readiness checklist after the sales section (30min available, quiet place, etc.)
-- [ ] **CHECK-02**: Prospect must validate all items before accessing the slot picker
+- [x] **CHECK-01**: Prospect sees a readiness checklist after the sales section (30min available, quiet place, etc.)
+- [x] **CHECK-02**: Prospect must validate all items before accessing the slot picker
 
 ### Availability & Slots
 
@@ -90,11 +90,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| PAGE-01 | Phase 4 | Pending |
+| PAGE-01 | Phase 4 | Complete |
 | PAGE-02 | Phase 1 | Complete |
 | PAGE-03 | Phase 1 | Complete |
-| CHECK-01 | Phase 4 | Pending |
-| CHECK-02 | Phase 4 | Pending |
+| CHECK-01 | Phase 4 | Complete |
+| CHECK-02 | Phase 4 | Complete |
 | AVAIL-01 | Phase 8 | Pending |
 | AVAIL-02 | Phase 2 | Complete |
 | AVAIL-03 | Phase 2 | Complete |
