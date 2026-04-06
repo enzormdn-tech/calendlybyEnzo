@@ -10,6 +10,7 @@ interface EmailBooking {
   email: string;
   startTime: string;
   endTime: string;
+  meetLink?: string;
 }
 
 /**
@@ -42,6 +43,7 @@ function formatForEmail(isoString: string): { date: string; time: string } {
 function buildEmailHTML(booking: EmailBooking): string {
   const { date, time } = formatForEmail(booking.startTime);
   const firstName = booking.name.split(" ")[0];
+  const meetLink = booking.meetLink || "";
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -96,7 +98,13 @@ function buildEmailHTML(booking: EmailBooking): string {
                     <span style="font-size: 12px; font-weight: 400; color: #6b6b6b; text-transform: uppercase; letter-spacing: 0.08em;">Dur\u00e9e</span><br>
                     <span style="font-size: 16px; font-weight: 400; color: #1c1c1c;">30 minutes</span>
                   </td>
-                </tr>
+                </tr>${meetLink ? `
+                <tr>
+                  <td style="padding: 12px 0 4px;">
+                    <span style="font-size: 12px; font-weight: 400; color: #6b6b6b; text-transform: uppercase; letter-spacing: 0.08em;">Lien Google Meet</span><br>
+                    <a href="${meetLink}" style="font-size: 15px; font-weight: 400; color: #1c1c1c; text-decoration: underline;">${meetLink}</a>
+                  </td>
+                </tr>` : ""}
               </table>
             </td>
           </tr>

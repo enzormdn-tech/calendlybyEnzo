@@ -67,8 +67,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Slot is free — create the Google Calendar event
-    const { eventId, htmlLink } = await createBookingEvent(
+    // Slot is free — create the Google Calendar event (with Google Meet link)
+    const { eventId, htmlLink, meetLink } = await createBookingEvent(
       { name, email },
       startTime,
       endTime
@@ -81,11 +81,12 @@ export async function POST(request: Request) {
       startTime,
       endTime,
       status: "confirmed",
+      meetLink,
     });
 
     // Fire-and-forget: send notifications without blocking the response
     // Notification failures must never break the booking flow
-    const bookingInfo = { name, email, startTime, endTime };
+    const bookingInfo = { name, email, startTime, endTime, meetLink };
     Promise.allSettled([
       sendTelegramNotification(bookingInfo),
       sendConfirmationEmail(bookingInfo),
@@ -107,6 +108,7 @@ export async function POST(request: Request) {
           endTime,
           eventId,
           htmlLink,
+          meetLink,
         },
       },
       { status: 201 }

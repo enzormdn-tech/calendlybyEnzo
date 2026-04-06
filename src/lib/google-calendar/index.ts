@@ -55,12 +55,13 @@ export async function createBookingEvent(
   prospect: { name: string; email: string },
   startTime: string,
   endTime: string
-): Promise<{ eventId: string; htmlLink: string }> {
+): Promise<{ eventId: string; htmlLink: string; meetLink: string }> {
   const calendar = getCalendarClient();
   const calendarId = getCalendarId();
 
   const response = await calendar.events.insert({
     calendarId,
+    conferenceDataVersion: 1,
     requestBody: {
       summary: `Discovery Call - ${prospect.name}`,
       description: [
@@ -78,6 +79,12 @@ export async function createBookingEvent(
         timeZone: "Europe/Paris",
       },
       attendees: [{ email: prospect.email, displayName: prospect.name }],
+      conferenceData: {
+        createRequest: {
+          requestId: `calendlybyenzo-${Date.now()}`,
+          conferenceSolutionKey: { type: "hangoutsMeet" },
+        },
+      },
       reminders: {
         useDefault: false,
         overrides: [
@@ -88,8 +95,14 @@ export async function createBookingEvent(
     },
   });
 
+  const meetLink =
+    response.data.conferenceData?.entryPoints?.find(
+      (ep) => ep.entryPointType === "video"
+    )?.uri || "";
+
   return {
     eventId: response.data.id || "",
     htmlLink: response.data.htmlLink || "",
+    meetLink,
   };
 }

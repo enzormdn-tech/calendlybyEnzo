@@ -8,6 +8,7 @@ interface BookingInfo {
   email: string;
   startTime: string;
   endTime: string;
+  meetLink?: string;
 }
 
 /**
@@ -49,7 +50,7 @@ export async function sendTelegramNotification(booking: BookingInfo): Promise<vo
 
     const { date, time } = formatDateFrench(booking.startTime);
 
-    const message = [
+    const lines = [
       "\u{1F5D3} *Nouveau RDV D\u00e9couverte*",
       "",
       `Pr\u00e9nom: ${escapeMarkdown(booking.name)}`,
@@ -58,7 +59,11 @@ export async function sendTelegramNotification(booking: BookingInfo): Promise<vo
       `Heure: ${escapeMarkdown(time)}`,
       "",
       `Dur\u00e9e: 30 minutes`,
-    ].join("\n");
+    ];
+    if (booking.meetLink) {
+      lines.push(`Meet: ${booking.meetLink}`);
+    }
+    const message = lines.join("\n");
 
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 

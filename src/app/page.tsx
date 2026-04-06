@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import ChecklistItem from "@/components/ChecklistItem";
 import SlotPicker from "@/components/SlotPicker";
 import BookingForm from "@/components/BookingForm";
 import BookingConfirmation from "@/components/BookingConfirmation";
 import type { SelectedSlot } from "@/components/SlotPicker";
 
-type FlowStep = "checklist" | "picking" | "booking" | "confirmed";
+type FlowStep = "picking" | "checklist" | "booking" | "confirmed";
 
 interface BookingDetails {
   name: string;
@@ -30,44 +30,33 @@ export default function BookingPage() {
     quiet: false,
     ready: false,
   });
-  const [flowStep, setFlowStep] = useState<FlowStep>("checklist");
+  const [flowStep, setFlowStep] = useState<FlowStep>("picking");
   const [selectedSlot, setSelectedSlot] = useState<SelectedSlot | null>(null);
   const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(null);
-  const slotPickerRef = useRef<HTMLDivElement>(null);
 
   const allChecked = CHECKLIST_ITEMS.every((item) => checked[item.id]);
-
-  function handleShowSlots() {
-    setFlowStep("picking");
-    // Scroll to slot picker after render
-    setTimeout(() => {
-      slotPickerRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }, 100);
-  }
 
   function handleSlotSelected(slot: SelectedSlot | null) {
     setSelectedSlot(slot);
     if (slot) {
-      setFlowStep("booking");
-      // Scroll to top for the booking form
+      setFlowStep("checklist");
+      // Scroll to top for the checklist
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }, 100);
     }
   }
 
+  function handleChecklistConfirm() {
+    setFlowStep("booking");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function handleBookingBack() {
     setSelectedSlot(null);
+    setChecked({ time: false, quiet: false, ready: false });
     setFlowStep("picking");
-    setTimeout(() => {
-      slotPickerRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }, 100);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function handleBookingSuccess(details: BookingDetails) {
@@ -88,6 +77,76 @@ export default function BookingPage() {
           name={bookingDetails.name}
           startTime={bookingDetails.startTime}
         />
+
+        <footer className="mt-20 pt-5 border-t border-border text-center">
+          <p className="text-[11px] text-border tracking-[0.02em] leading-[1.55]">
+            Enzo Remidene &middot; Coaching personnel
+          </p>
+        </footer>
+      </main>
+    );
+  }
+
+  // Checklist — after slot selected, before booking form
+  if (flowStep === "checklist" && selectedSlot) {
+    return (
+      <main className="max-w-[680px] mx-auto px-7 py-16 md:py-24">
+        <section className="flex flex-col items-center text-center gap-3.5 mb-10">
+          <h1 className="text-2xl md:text-[28px] font-normal tracking-[-0.02em] leading-[1.2]">
+            Avant votre coaching
+          </h1>
+          <p className="text-sub text-[15px] leading-relaxed max-w-[380px]">
+            Pour profiter pleinement de ces 30 minutes, assurez-vous de remplir ces conditions.
+          </p>
+        </section>
+
+        <section className="mb-10">
+          <div className="flex flex-col gap-2">
+            {CHECKLIST_ITEMS.map((item) => (
+              <ChecklistItem
+                key={item.id}
+                label={item.label}
+                checked={checked[item.id]}
+                onToggle={() => toggleItem(item.id)}
+              />
+            ))}
+          </div>
+        </section>
+
+        <section className="flex flex-col items-center">
+          <button
+            type="button"
+            disabled={!allChecked}
+            onClick={handleChecklistConfirm}
+            className={`
+              inline-flex items-center justify-center
+              px-9 py-4 rounded-full
+              font-normal text-[15px] tracking-[0.01em]
+              transition-all duration-300 ease-out
+              ${
+                allChecked
+                  ? "bg-accent text-bg cursor-pointer hover:opacity-[0.82] hover:-translate-y-px active:translate-y-0 active:opacity-100"
+                  : "bg-btn-idle text-sub cursor-not-allowed opacity-60"
+              }
+            `}
+          >
+            Confirmer mon creneau
+          </button>
+
+          {!allChecked && (
+            <p className="text-[11px] text-border tracking-[0.02em] mt-3 transition-opacity duration-300">
+              Cochez les 3 cases pour continuer
+            </p>
+          )}
+
+          <button
+            type="button"
+            onClick={() => { setSelectedSlot(null); setFlowStep("picking"); }}
+            className="mt-4 text-sub text-[13px] underline underline-offset-2 hover:text-text transition-colors"
+          >
+            Choisir un autre creneau
+          </button>
+        </section>
 
         <footer className="mt-20 pt-5 border-t border-border text-center">
           <p className="text-[11px] text-border tracking-[0.02em] leading-[1.55]">
@@ -183,64 +242,10 @@ export default function BookingPage() {
         </div>
       </section>
 
-      {/* ── Readiness Checklist ── */}
-      <section className="mb-10">
-        <div className="border-t border-border pt-5">
-          <p className="text-[10px] tracking-[0.08em] uppercase text-sub mb-4">
-            Avant de reserver
-          </p>
-          <div className="flex flex-col gap-2">
-            {CHECKLIST_ITEMS.map((item) => (
-              <ChecklistItem
-                key={item.id}
-                label={item.label}
-                checked={checked[item.id]}
-                onToggle={() => toggleItem(item.id)}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA Button ── */}
-      {flowStep === "checklist" && (
-        <section className="flex flex-col items-center">
-          <button
-            type="button"
-            disabled={!allChecked}
-            onClick={handleShowSlots}
-            className={`
-              inline-flex items-center justify-center
-              px-9 py-4 rounded-full
-              font-normal text-[15px] tracking-[0.01em]
-              transition-all duration-300 ease-out
-              ${
-                allChecked
-                  ? "bg-accent text-bg cursor-pointer hover:opacity-[0.82] hover:-translate-y-px active:translate-y-0 active:opacity-100"
-                  : "bg-btn-idle text-sub cursor-not-allowed opacity-60"
-              }
-            `}
-          >
-            Voir les creneaux disponibles
-          </button>
-
-          {!allChecked && (
-            <p className="text-[11px] text-border tracking-[0.02em] mt-3 transition-opacity duration-300">
-              Coche les 3 cases pour continuer
-            </p>
-          )}
-        </section>
-      )}
-
       {/* ── Slot Picker ── */}
-      {flowStep === "picking" && (
-        <section
-          ref={slotPickerRef}
-          className="mb-10 animate-fade-in"
-        >
-          <SlotPicker onSelect={handleSlotSelected} />
-        </section>
-      )}
+      <section className="mb-10">
+        <SlotPicker onSelect={handleSlotSelected} />
+      </section>
 
       {/* ── Footer ── */}
       <footer className="mt-20 pt-5 border-t border-border text-center">

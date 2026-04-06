@@ -8,6 +8,7 @@ interface ReminderBooking {
   email: string;
   startTime: string;
   endTime: string;
+  meetLink?: string;
 }
 
 /**
@@ -39,6 +40,7 @@ function formatForEmail(isoString: string): { date: string; time: string } {
 function buildReminderHTML(booking: ReminderBooking): string {
   const { date, time } = formatForEmail(booking.startTime);
   const firstName = booking.name.split(" ")[0];
+  const meetLink = booking.meetLink || "";
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -93,7 +95,13 @@ function buildReminderHTML(booking: ReminderBooking): string {
                     <span style="font-size: 12px; font-weight: 400; color: #6b6b6b; text-transform: uppercase; letter-spacing: 0.08em;">Duree</span><br>
                     <span style="font-size: 16px; font-weight: 400; color: #1c1c1c;">30 minutes</span>
                   </td>
-                </tr>
+                </tr>${meetLink ? `
+                <tr>
+                  <td style="padding: 12px 0 4px;">
+                    <span style="font-size: 12px; font-weight: 400; color: #6b6b6b; text-transform: uppercase; letter-spacing: 0.08em;">Lien Google Meet</span><br>
+                    <a href="${meetLink}" style="display: inline-block; margin-top: 8px; padding: 10px 24px; background-color: #1c1c1c; color: #fafaf8; text-decoration: none; border-radius: 8px; font-size: 14px; font-weight: 400;">Rejoindre l'appel</a>
+                  </td>
+                </tr>` : ""}
               </table>
             </td>
           </tr>
@@ -240,6 +248,7 @@ export async function GET(request: NextRequest) {
         email: booking.prospectEmail,
         startTime: booking.startTime,
         endTime: booking.endTime,
+        meetLink: booking.meetLink || "",
       });
 
       if (success) {

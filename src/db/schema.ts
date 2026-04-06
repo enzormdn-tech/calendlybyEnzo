@@ -9,6 +9,7 @@ export const bookings = sqliteTable("bookings", {
   status: text("status", { enum: ["confirmed", "cancelled"] })
     .notNull()
     .default("confirmed"),
+  meetLink: text("meet_link").default(""),
   reminded: integer("reminded", { mode: "boolean" }).notNull().default(false),
   createdAt: text("created_at")
     .notNull()
