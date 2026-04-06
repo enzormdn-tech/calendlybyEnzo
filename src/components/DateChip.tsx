@@ -18,7 +18,7 @@ export default function DateChip({
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      aria-label={`Voir les creneaux du ${label}`}
+      aria-label={`Voir les créneaux du ${label}`}
       className={`
         flex-shrink-0 px-4 py-2.5 rounded-full
         text-[13px] tracking-[0.01em] whitespace-nowrap

@@ -13,8 +13,8 @@ function formatDate(isoDatetime: string): string {
     "Jeudi", "Vendredi", "Samedi",
   ];
   const months = [
-    "janvier", "fevrier", "mars", "avril", "mai", "juin",
-    "juillet", "aout", "septembre", "octobre", "novembre", "decembre",
+    "janvier", "février", "mars", "avril", "mai", "juin",
+    "juillet", "août", "septembre", "octobre", "novembre", "décembre",
   ];
   return `${weekdays[date.getDay()]} ${date.getDate()} ${months[date.getMonth()]}`;
 }
@@ -54,10 +54,10 @@ export default function BookingConfirmation({
       {/* Main heading */}
       <div className="flex flex-col gap-2">
         <h2 className="text-xl md:text-2xl font-normal tracking-[-0.02em] leading-[1.2]">
-          Votre appel decouverte est confirme !
+          Votre appel découverte est confirmé !
         </h2>
         <p className="text-[15px] text-sub leading-relaxed">
-          Merci {name}, votre creneau est reserve.
+          Merci {name}, votre créneau est réservé.
         </p>
       </div>
 
@@ -72,7 +72,7 @@ export default function BookingConfirmation({
           <span className="text-[15px] text-text">{formatTime(startTime)}</span>
         </div>
         <div className="flex justify-between items-baseline">
-          <span className="text-[12px] tracking-[0.04em] text-sub">Duree</span>
+          <span className="text-[12px] tracking-[0.04em] text-sub">Durée</span>
           <span className="text-[15px] text-text">30 minutes</span>
         </div>
       </div>
@@ -83,15 +83,15 @@ export default function BookingConfirmation({
           Ce qui vous attend
         </p>
         <p className="text-[15px] leading-[1.65] text-sub max-w-[420px] mx-auto">
-          30 minutes d&apos;echange sincere sur votre situation.
-          Pas de methode generique — juste une ecoute attentive
-          et des pistes concretes adaptees a vous.
+          30 minutes d&apos;échange sincère sur votre situation.
+          Pas de méthode générique — juste une écoute attentive
+          et des pistes concrètes adaptées à vous.
         </p>
       </div>
 
       {/* Warm closing */}
       <p className="text-[17px] text-text tracking-[-0.01em] mt-2">
-        A tres bientot !
+        À très bientôt !
       </p>
     </div>
   );

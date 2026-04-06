@@ -4,7 +4,7 @@ import { useState } from "react";
 import { z } from "zod/v4";
 
 const bookingFormSchema = z.object({
-  name: z.string().min(1, "Le prenom est requis"),
+  name: z.string().min(1, "Le prénom est requis"),
   email: z.email("Adresse email invalide"),
 });
 
@@ -22,15 +22,15 @@ function formatSlotSummary(isoDatetime: string): string {
     "Jeudi", "Vendredi", "Samedi",
   ];
   const months = [
-    "janvier", "fevrier", "mars", "avril", "mai", "juin",
-    "juillet", "aout", "septembre", "octobre", "novembre", "decembre",
+    "janvier", "février", "mars", "avril", "mai", "juin",
+    "juillet", "août", "septembre", "octobre", "novembre", "décembre",
   ];
   const weekday = weekdays[date.getDay()];
   const day = date.getDate();
   const month = months[date.getMonth()];
   const hours = date.getHours();
   const minutes = date.getMinutes().toString().padStart(2, "0");
-  return `${weekday} ${day} ${month} a ${hours}h${minutes}`;
+  return `${weekday} ${day} ${month} à ${hours}h${minutes}`;
 }
 
 export default function BookingForm({
@@ -82,7 +82,7 @@ export default function BookingForm({
       if (res.status === 409) {
         setIsConflict(true);
         setServerError(
-          "Ce creneau vient d\u2019etre reserve. Veuillez en choisir un autre."
+          "Ce créneau vient d'être réservé. Veuillez en choisir un autre."
         );
         setSubmitting(false);
         return;
@@ -90,7 +90,7 @@ export default function BookingForm({
 
       if (!res.ok) {
         setServerError(
-          "Une erreur est survenue. Veuillez reessayer dans quelques instants."
+          "Une erreur est survenue. Veuillez réessayer dans quelques instants."
         );
         setSubmitting(false);
         return;
@@ -104,7 +104,7 @@ export default function BookingForm({
       });
     } catch {
       setServerError(
-        "Impossible de contacter le serveur. Verifiez votre connexion."
+        "Impossible de contacter le serveur. Vérifiez votre connexion."
       );
       setSubmitting(false);
     }
@@ -115,7 +115,7 @@ export default function BookingForm({
       {/* Slot summary */}
       <div className="border-t border-border pt-5">
         <p className="text-[10px] tracking-[0.08em] uppercase text-sub mb-3">
-          Votre creneau
+          Votre créneau
         </p>
         <p className="text-[15px] text-text leading-[1.4]">
           {formatSlotSummary(selectedSlot.start)}
@@ -129,7 +129,7 @@ export default function BookingForm({
             htmlFor="booking-name"
             className="text-[12px] tracking-[0.04em] text-sub"
           >
-            Prenom
+            Prénom
           </label>
           <input
             id="booking-name"
@@ -138,7 +138,7 @@ export default function BookingForm({
             disabled={submitting}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Votre prenom"
+            placeholder="Votre prénom"
             className="w-full px-4 py-3 rounded-lg border border-border bg-bg text-text text-[15px]
                        placeholder:text-sub/50 outline-none
                        focus:border-text/30 transition-colors duration-200
@@ -186,7 +186,7 @@ export default function BookingForm({
                 onClick={onBack}
                 className="text-[13px] text-text underline underline-offset-4 cursor-pointer"
               >
-                Choisir un autre creneau
+                Choisir un autre créneau
               </button>
             ) : (
               <button
@@ -194,7 +194,7 @@ export default function BookingForm({
                 onClick={handleSubmit as unknown as () => void}
                 className="text-[13px] text-text underline underline-offset-4 cursor-pointer"
               >
-                Reessayer
+                Réessayer
               </button>
             )}
           </div>
@@ -220,7 +220,7 @@ export default function BookingForm({
             {submitting && (
               <span className="w-4 h-4 border-2 border-sub/30 border-t-bg rounded-full animate-spin" />
             )}
-            {submitting ? "Confirmation en cours..." : "Confirmer mon creneau"}
+            {submitting ? "Confirmation en cours..." : "Confirmer mon créneau"}
           </button>
 
           {!submitting && (
@@ -229,7 +229,7 @@ export default function BookingForm({
               onClick={onBack}
               className="text-[12px] text-sub tracking-[0.02em] cursor-pointer hover:text-text transition-colors duration-200"
             >
-              Revenir aux creneaux
+              Revenir aux créneaux
             </button>
           )}
         </div>

@@ -20,7 +20,7 @@ const CHECKLIST_ITEMS = [
   { id: "quiet", label: "Je suis dans un endroit calme" },
   {
     id: "ready",
-    label: "Je suis pret(e) a parler ouvertement de ma situation",
+    label: "Je suis prêt(e) à parler ouvertement de ma situation",
   },
 ] as const;
 
@@ -130,7 +130,7 @@ export default function BookingPage() {
               }
             `}
           >
-            Confirmer mon creneau
+            Confirmer mon créneau
           </button>
 
           {!allChecked && (
@@ -144,7 +144,7 @@ export default function BookingPage() {
             onClick={() => { setSelectedSlot(null); setFlowStep("picking"); }}
             className="mt-4 text-sub text-[13px] underline underline-offset-2 hover:text-text transition-colors"
           >
-            Choisir un autre creneau
+            Choisir un autre créneau
           </button>
         </section>
 
@@ -163,10 +163,10 @@ export default function BookingPage() {
       <main className="max-w-[680px] mx-auto px-7 py-16 md:py-24">
         <section className="flex flex-col items-center text-center gap-3.5 mb-10">
           <h1 className="text-2xl md:text-[28px] font-normal tracking-[-0.02em] leading-[1.2]">
-            Plus qu&apos;une etape.
+            Plus qu&apos;une étape.
           </h1>
           <p className="text-sub text-[15px] leading-relaxed max-w-[380px]">
-            Renseignez vos coordonnees pour confirmer votre creneau.
+            Renseignez vos coordonnées pour confirmer votre créneau.
           </p>
         </section>
 
@@ -190,12 +190,12 @@ export default function BookingPage() {
       {/* ── Hero / Sales Section ── */}
       <section className="flex flex-col items-center text-center gap-3.5 mb-16">
         <h1 className="text-2xl md:text-[28px] font-normal tracking-[-0.02em] leading-[1.2]">
-          30 minutes pour reprendre le controle.
+          30 minutes pour reprendre le contrôle.
         </h1>
 
         <p className="text-sub text-base leading-relaxed max-w-[420px]">
-          Un appel. Pas de blabla, pas de methode generique.
-          Juste un echange sincere sur ta situation — et des pistes concretes
+          Un appel. Pas de blabla, pas de méthode générique.
+          Juste un échange sincère sur ta situation — et des pistes concrètes
           pour avancer.
         </p>
       </section>
@@ -209,19 +209,19 @@ export default function BookingPage() {
           <ul className="flex flex-col gap-[5px]">
             <li className="text-[15px] leading-[1.4] text-text flex items-baseline gap-2">
               <span className="text-sub text-[11px] flex-shrink-0">&rarr;</span>
-              De la clarte sur ta situation actuelle
+              De la clarté sur ta situation actuelle
             </li>
             <li className="text-[15px] leading-[1.4] text-text flex items-baseline gap-2">
               <span className="text-sub text-[11px] flex-shrink-0">&rarr;</span>
-              Des recommandations personnalisees
+              Des recommandations personnalisées
             </li>
             <li className="text-[15px] leading-[1.4] text-text flex items-baseline gap-2">
               <span className="text-sub text-[11px] flex-shrink-0">&rarr;</span>
-              Des prochaines etapes concretes
+              Des prochaines étapes concrètes
             </li>
             <li className="text-[15px] leading-[1.4] text-text flex items-baseline gap-2">
               <span className="text-sub text-[11px] flex-shrink-0">&rarr;</span>
-              Zero engagement, zero frais
+              Zéro engagement, zéro frais
             </li>
           </ul>
         </div>
@@ -231,12 +231,12 @@ export default function BookingPage() {
       <section className="mb-16">
         <div className="border-t border-border pt-5">
           <p className="text-[10px] tracking-[0.08em] uppercase text-sub mb-3">
-            Comment ca se passe
+            Comment ça se passe
           </p>
           <p className="text-[15px] leading-[1.65] text-sub">
-            Tu choisis un creneau, tu recois un lien Google Meet, et on parle
-            pendant 30 minutes. Je t&apos;ecoute, je te pose les bonnes
-            questions, et on definit ensemble ce qui ferait vraiment la
+            Tu choisis un créneau, tu reçois un lien Google Meet, et on parle
+            pendant 30 minutes. Je t&apos;écoute, je te pose les bonnes
+            questions, et on définit ensemble ce qui ferait vraiment la
             difference pour toi.
           </p>
         </div>

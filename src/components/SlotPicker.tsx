@@ -19,7 +19,7 @@ function formatDateLabel(isoDate: string): string {
   const weekdays = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
   const months = [
     "janv.", "fevr.", "mars", "avr.", "mai", "juin",
-    "juil.", "aout", "sept.", "oct.", "nov.", "dec.",
+    "juil.", "août", "sept.", "oct.", "nov.", "déc.",
   ];
   const weekday = weekdays[date.getDay()];
   const day = date.getDate();
@@ -85,7 +85,7 @@ export default function SlotPicker({ onSelect }: SlotPickerProps) {
         setError(null);
         const res = await fetch("/api/slots");
         if (!res.ok) {
-          throw new Error("Impossible de charger les creneaux");
+          throw new Error("Impossible de charger les créneaux");
         }
         const data = await res.json();
         const grouped = groupSlotsByDate(data.slots || []);
@@ -97,7 +97,7 @@ export default function SlotPicker({ onSelect }: SlotPickerProps) {
           setSelectedDate(sortedDates[0]);
         }
       } catch {
-        setError("Impossible de charger les creneaux. Reessayez plus tard.");
+        setError("Impossible de charger les créneaux. Réessayez plus tard.");
       } finally {
         setLoading(false);
       }
@@ -129,7 +129,7 @@ export default function SlotPicker({ onSelect }: SlotPickerProps) {
       <div className="flex flex-col items-center gap-3 py-10">
         <div className="w-5 h-5 border-2 border-sub/30 border-t-text rounded-full animate-spin" />
         <p className="text-[13px] text-sub tracking-[0.02em]">
-          Chargement des creneaux...
+          Chargement des créneaux...
         </p>
       </div>
     );
@@ -156,7 +156,7 @@ export default function SlotPicker({ onSelect }: SlotPickerProps) {
     return (
       <div className="flex flex-col items-center py-10">
         <p className="text-[13px] text-sub tracking-[0.02em]">
-          Aucun creneau disponible pour le moment.
+          Aucun créneau disponible pour le moment.
         </p>
       </div>
     );
@@ -169,7 +169,7 @@ export default function SlotPicker({ onSelect }: SlotPickerProps) {
       {/* Section label */}
       <div className="border-t border-border pt-5">
         <p className="text-[10px] tracking-[0.08em] uppercase text-sub mb-4">
-          Choisissez un creneau
+          Choisissez un créneau
         </p>
 
         {/* Date chips — horizontal scroll on mobile */}
