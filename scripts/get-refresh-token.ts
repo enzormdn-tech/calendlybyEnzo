@@ -28,8 +28,7 @@ const PORT = 3333;
 const REDIRECT_URI = `http://localhost:${PORT}/callback`;
 
 const SCOPES = [
-  "https://www.googleapis.com/auth/calendar.freebusy",
-  "https://www.googleapis.com/auth/calendar.events",
+  "https://www.googleapis.com/auth/calendar",
 ];
 
 async function main() {
