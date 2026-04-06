@@ -118,6 +118,7 @@ export async function POST(request: Request) {
 
     const message =
       error instanceof Error ? error.message : "Unknown error";
+    console.error("[POST /api/book] Full error:", JSON.stringify(error, Object.getOwnPropertyNames(error instanceof Error ? error : {})));
 
     if (message.includes("credentials") || message.includes("OAuth")) {
       return NextResponse.json(
