@@ -59,41 +59,74 @@ export async function createBookingEvent(
   const calendar = getCalendarClient();
   const calendarId = getCalendarId();
 
-  const response = await calendar.events.insert({
-    calendarId,
-    conferenceDataVersion: 1,
-    requestBody: {
-      summary: `Discovery Call - ${prospect.name}`,
-      description: [
-        `Prospect: ${prospect.name}`,
-        `Email: ${prospect.email}`,
-        "",
-        "30-minute discovery coaching call booked via CalendlyByEnzo.",
-      ].join("\n"),
-      start: {
-        dateTime: startTime,
-        timeZone: "Europe/Paris",
-      },
-      end: {
-        dateTime: endTime,
-        timeZone: "Europe/Paris",
-      },
-      attendees: [{ email: prospect.email, displayName: prospect.name }],
-      conferenceData: {
-        createRequest: {
-          requestId: `calendlybyenzo-${Date.now()}`,
-          conferenceSolutionKey: { type: "hangoutsMeet" },
+  // Try with Google Meet conference link first, fall back without if it fails
+  let response;
+  try {
+    response = await calendar.events.insert({
+      calendarId,
+      conferenceDataVersion: 1,
+      requestBody: {
+        summary: `Discovery Call - ${prospect.name}`,
+        description: [
+          `Prospect: ${prospect.name}`,
+          `Email: ${prospect.email}`,
+          "",
+          "30-minute discovery coaching call booked via CalendlyByEnzo.",
+        ].join("\n"),
+        start: {
+          dateTime: startTime,
+          timeZone: "Europe/Paris",
+        },
+        end: {
+          dateTime: endTime,
+          timeZone: "Europe/Paris",
+        },
+        conferenceData: {
+          createRequest: {
+            requestId: `calendlybyenzo-${Date.now()}`,
+            conferenceSolutionKey: { type: "hangoutsMeet" },
+          },
+        },
+        reminders: {
+          useDefault: false,
+          overrides: [
+            { method: "popup", minutes: 30 },
+            { method: "popup", minutes: 10 },
+          ],
         },
       },
-      reminders: {
-        useDefault: false,
-        overrides: [
-          { method: "popup", minutes: 30 },
-          { method: "popup", minutes: 10 },
-        ],
+    });
+  } catch {
+    // Fallback: create event without Google Meet
+    console.warn("[Google Calendar] Meet creation failed, creating event without Meet link");
+    response = await calendar.events.insert({
+      calendarId,
+      requestBody: {
+        summary: `Discovery Call - ${prospect.name}`,
+        description: [
+          `Prospect: ${prospect.name}`,
+          `Email: ${prospect.email}`,
+          "",
+          "30-minute discovery coaching call booked via CalendlyByEnzo.",
+        ].join("\n"),
+        start: {
+          dateTime: startTime,
+          timeZone: "Europe/Paris",
+        },
+        end: {
+          dateTime: endTime,
+          timeZone: "Europe/Paris",
+        },
+        reminders: {
+          useDefault: false,
+          overrides: [
+            { method: "popup", minutes: 30 },
+            { method: "popup", minutes: 10 },
+          ],
+        },
       },
-    },
-  });
+    });
+  }
 
   const meetLink =
     response.data.conferenceData?.entryPoints?.find(

@@ -194,8 +194,7 @@ export default function BookingPage() {
         </h1>
 
         <p className="text-sub text-base leading-relaxed max-w-[420px]">
-          Un appel. Pas de blabla, pas de méthode générique.
-          Juste un échange sincère sur ta situation — et des pistes concrètes
+          Un échange sincère sur ta situation — et des pistes concrètes
           pour avancer.
         </p>
       </section>
@@ -217,7 +216,7 @@ export default function BookingPage() {
             </li>
             <li className="text-[15px] leading-[1.4] text-text flex items-baseline gap-2">
               <span className="text-sub text-[11px] flex-shrink-0">&rarr;</span>
-              Des prochaines étapes concrètes
+              Des actions étape par étape
             </li>
             <li className="text-[15px] leading-[1.4] text-text flex items-baseline gap-2">
               <span className="text-sub text-[11px] flex-shrink-0">&rarr;</span>
@@ -233,12 +232,20 @@ export default function BookingPage() {
           <p className="text-[10px] tracking-[0.08em] uppercase text-sub mb-3">
             Comment ça se passe
           </p>
-          <p className="text-[15px] leading-[1.65] text-sub">
-            Tu choisis un créneau, tu reçois un lien Google Meet, et on parle
-            pendant 30 minutes. Je t&apos;écoute, je te pose les bonnes
-            questions, et on définit ensemble ce qui ferait vraiment la
-            difference pour toi.
-          </p>
+          <ul className="flex flex-col gap-[5px]">
+            <li className="text-[15px] leading-[1.4] text-sub flex items-baseline gap-2">
+              <span className="text-sub text-[11px] flex-shrink-0">&rarr;</span>
+              Tu choisis un créneau ci-dessous
+            </li>
+            <li className="text-[15px] leading-[1.4] text-sub flex items-baseline gap-2">
+              <span className="text-sub text-[11px] flex-shrink-0">&rarr;</span>
+              Tu reçois un lien Google Meet par email
+            </li>
+            <li className="text-[15px] leading-[1.4] text-sub flex items-baseline gap-2">
+              <span className="text-sub text-[11px] flex-shrink-0">&rarr;</span>
+              On échange 30 minutes en visio
+            </li>
+          </ul>
         </div>
       </section>
 
