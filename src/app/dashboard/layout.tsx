@@ -60,7 +60,7 @@ export default function DashboardLayout({
             fontWeight: 300,
           }}
         >
-          Disponibilites
+          Disponibilités
         </Link>
       </nav>
       <main style={{ padding: "2rem" }}>{children}</main>

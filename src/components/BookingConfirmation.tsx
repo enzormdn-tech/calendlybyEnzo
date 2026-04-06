@@ -54,10 +54,10 @@ export default function BookingConfirmation({
       {/* Main heading */}
       <div className="flex flex-col gap-2">
         <h2 className="text-xl md:text-2xl font-normal tracking-[-0.02em] leading-[1.2]">
-          Votre appel découverte est confirmé !
+          Ton appel découverte est confirmé !
         </h2>
         <p className="text-[15px] text-sub leading-relaxed">
-          Merci {name}, votre créneau est réservé.
+          Merci {name}, ton créneau est réservé.
         </p>
       </div>
 
@@ -80,12 +80,12 @@ export default function BookingConfirmation({
       {/* What to expect */}
       <div className="w-full border-t border-border pt-5 mt-2">
         <p className="text-[10px] tracking-[0.08em] uppercase text-sub mb-3">
-          Ce qui vous attend
+          Ce qui t'attend
         </p>
         <p className="text-[15px] leading-[1.65] text-sub max-w-[420px] mx-auto">
-          30 minutes d&apos;échange sincère sur votre situation.
+          30 minutes d&apos;échange sincère sur ta situation.
           Pas de méthode générique — juste une écoute attentive
-          et des pistes concrètes adaptées à vous.
+          et des pistes concrètes adaptées à toi.
         </p>
       </div>
 

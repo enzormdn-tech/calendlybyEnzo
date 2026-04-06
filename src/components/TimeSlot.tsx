@@ -12,7 +12,7 @@ export default function TimeSlot({ time, selected, onClick }: TimeSlotProps) {
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      aria-label={`Reserver a ${time}`}
+      aria-label={`Réserver à ${time}`}
       className={`
         px-5 py-3 rounded-xl
         text-[15px] font-light tracking-[0.01em]

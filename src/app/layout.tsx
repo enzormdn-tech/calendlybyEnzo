@@ -10,7 +10,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Enzo Remidene - Coaching",
   description:
-    "Reservez votre appel decouverte de 30 minutes avec Enzo Remidene. Coaching personnalise pour sortir du burnout et retrouver votre equilibre.",
+    "Réservez votre appel découverte de 30 minutes avec Enzo Remidene. Coaching personnalisé pour sortir du burnout et retrouver votre équilibre.",
 };
 
 export default function RootLayout({

@@ -18,7 +18,7 @@ function formatDateLabel(isoDate: string): string {
   const date = new Date(isoDate + "T00:00:00");
   const weekdays = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
   const months = [
-    "janv.", "fevr.", "mars", "avr.", "mai", "juin",
+    "janv.", "févr.", "mars", "avr.", "mai", "juin",
     "juil.", "août", "sept.", "oct.", "nov.", "déc.",
   ];
   const weekday = weekdays[date.getDay()];
@@ -145,7 +145,7 @@ export default function SlotPicker({ onSelect }: SlotPickerProps) {
           onClick={() => window.location.reload()}
           className="text-[13px] text-text underline underline-offset-4 cursor-pointer"
         >
-          Reessayer
+          Réessayer
         </button>
       </div>
     );
@@ -203,9 +203,9 @@ export default function SlotPicker({ onSelect }: SlotPickerProps) {
       {/* Selected slot confirmation */}
       {selectedSlot && selectedDate && (
         <p className="text-[13px] text-sub tracking-[0.02em] text-center animate-fade-in">
-          Creneau selectionne :{" "}
+          Créneau sélectionné :{" "}
           <span className="text-text font-normal">
-            {formatDateLabel(selectedDate)} a {formatTime(selectedSlot)}
+            {formatDateLabel(selectedDate)} à {formatTime(selectedSlot)}
           </span>
         </p>
       )}

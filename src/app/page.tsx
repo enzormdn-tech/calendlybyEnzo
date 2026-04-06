@@ -93,10 +93,10 @@ export default function BookingPage() {
       <main className="max-w-[680px] mx-auto px-7 py-16 md:py-24">
         <section className="flex flex-col items-center text-center gap-3.5 mb-10">
           <h1 className="text-2xl md:text-[28px] font-normal tracking-[-0.02em] leading-[1.2]">
-            Avant votre coaching
+            Avant ton coaching
           </h1>
           <p className="text-sub text-[15px] leading-relaxed max-w-[380px]">
-            Pour profiter pleinement de ces 30 minutes, assurez-vous de remplir ces conditions.
+            Pour profiter pleinement de ces 30 minutes, assure-toi de remplir ces conditions.
           </p>
         </section>
 
@@ -166,7 +166,7 @@ export default function BookingPage() {
             Plus qu&apos;une étape.
           </h1>
           <p className="text-sub text-[15px] leading-relaxed max-w-[380px]">
-            Renseignez vos coordonnées pour confirmer votre créneau.
+            Renseigne tes coordonnées pour confirmer ton créneau.
           </p>
         </section>
 

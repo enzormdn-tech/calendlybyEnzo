@@ -47,7 +47,7 @@ function buildReminderHTML(booking: ReminderBooking): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rappel : votre appel decouverte est demain</title>
+  <title>Rappel : ton appel découverte est demain</title>
 </head>
 <body style="margin: 0; padding: 0; background-color: #fafaf8; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1c1c1c; line-height: 1.6;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #fafaf8;">
@@ -92,7 +92,7 @@ function buildReminderHTML(booking: ReminderBooking): string {
                 </tr>
                 <tr>
                   <td style="padding: 8px 0;">
-                    <span style="font-size: 12px; font-weight: 400; color: #6b6b6b; text-transform: uppercase; letter-spacing: 0.08em;">Duree</span><br>
+                    <span style="font-size: 12px; font-weight: 400; color: #6b6b6b; text-transform: uppercase; letter-spacing: 0.08em;">Durée</span><br>
                     <span style="font-size: 16px; font-weight: 400; color: #1c1c1c;">30 minutes</span>
                   </td>
                 </tr>${meetLink ? `
@@ -121,8 +121,8 @@ function buildReminderHTML(booking: ReminderBooking): string {
               </h2>
               <ul style="margin: 0; padding: 0 0 0 18px; font-size: 14px; font-weight: 300; color: #3a3a3a;">
                 <li style="padding: 4px 0;">Installe-toi dans un endroit calme</li>
-                <li style="padding: 4px 0;">Prepare 1 ou 2 questions que tu aimerais explorer</li>
-                <li style="padding: 4px 0;">Pas besoin de camera — un appel audio suffit</li>
+                <li style="padding: 4px 0;">Prépare 1 ou 2 questions que tu aimerais explorer</li>
+                <li style="padding: 4px 0;">Pas besoin de caméra — un appel audio suffit</li>
               </ul>
             </td>
           </tr>
@@ -131,7 +131,7 @@ function buildReminderHTML(booking: ReminderBooking): string {
           <tr>
             <td style="padding: 24px 32px 36px; text-align: center;">
               <p style="margin: 0; font-size: 14px; font-weight: 300; color: #6b6b6b;">
-                A demain ${firstName}\u00a0!
+                À demain ${firstName}\u00a0!
               </p>
               <p style="margin: 8px 0 0; font-size: 13px; font-weight: 300; color: #9a9a9a;">
                 Enzo Remidene — Coach
@@ -143,7 +143,7 @@ function buildReminderHTML(booking: ReminderBooking): string {
 
         <!-- Sub-footer -->
         <p style="margin: 24px 0 0; font-size: 11px; color: #9a9a9a; font-weight: 300; text-align: center;">
-          Tu recois cet email car tu as reserve un appel decouverte.
+          Tu reçois cet email car tu as réservé un appel découverte.
         </p>
       </td>
     </tr>
@@ -178,7 +178,7 @@ async function sendReminderEmail(booking: ReminderBooking): Promise<boolean> {
           email: booking.email,
         },
       ],
-      subject: `Rappel — Appel decouverte demain a ${time} (${date})`,
+      subject: `Rappel — Appel découverte demain à ${time} (${date})`,
       htmlContent,
     };
 

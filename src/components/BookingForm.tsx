@@ -82,7 +82,7 @@ export default function BookingForm({
       if (res.status === 409) {
         setIsConflict(true);
         setServerError(
-          "Ce créneau vient d'être réservé. Veuillez en choisir un autre."
+          "Ce créneau vient d'être réservé. Choisis-en un autre."
         );
         setSubmitting(false);
         return;
@@ -90,7 +90,7 @@ export default function BookingForm({
 
       if (!res.ok) {
         setServerError(
-          "Une erreur est survenue. Veuillez réessayer dans quelques instants."
+          "Une erreur est survenue. Réessaie dans quelques instants."
         );
         setSubmitting(false);
         return;
@@ -104,7 +104,7 @@ export default function BookingForm({
       });
     } catch {
       setServerError(
-        "Impossible de contacter le serveur. Vérifiez votre connexion."
+        "Impossible de contacter le serveur. Vérifie ta connexion."
       );
       setSubmitting(false);
     }
@@ -115,7 +115,7 @@ export default function BookingForm({
       {/* Slot summary */}
       <div className="border-t border-border pt-5">
         <p className="text-[10px] tracking-[0.08em] uppercase text-sub mb-3">
-          Votre créneau
+          Ton créneau
         </p>
         <p className="text-[15px] text-text leading-[1.4]">
           {formatSlotSummary(selectedSlot.start)}
@@ -138,7 +138,7 @@ export default function BookingForm({
             disabled={submitting}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Votre prénom"
+            placeholder="Ton prénom"
             className="w-full px-4 py-3 rounded-lg border border-border bg-bg text-text text-[15px]
                        placeholder:text-sub/50 outline-none
                        focus:border-text/30 transition-colors duration-200

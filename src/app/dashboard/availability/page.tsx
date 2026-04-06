@@ -69,7 +69,7 @@ export default function AvailabilityPage() {
       setStartTime("14:00");
       setEndTime("18:00");
     } catch {
-      setError("Erreur reseau");
+      setError("Erreur réseau");
     } finally {
       setSaving(false);
     }
@@ -117,7 +117,7 @@ export default function AvailabilityPage() {
           letterSpacing: "-0.01em",
         }}
       >
-        Creneaux de disponibilite
+        Créneaux de disponibilité
       </h2>
 
       {/* Current windows */}
@@ -125,7 +125,7 @@ export default function AvailabilityPage() {
         <p style={{ color: "#666", fontSize: "14px" }}>Chargement...</p>
       ) : windows.length === 0 ? (
         <p style={{ color: "#666", fontSize: "14px", marginBottom: "2rem" }}>
-          Aucun creneau configure. Les creneaux par defaut seront utilises (mardi et jeudi, 14h-18h).
+          Aucun créneau configuré. Les créneaux par défaut seront utilisés (mardi et jeudi, 14h-18h).
         </p>
       ) : (
         <table
@@ -164,7 +164,7 @@ export default function AvailabilityPage() {
                   letterSpacing: "0.06em",
                 }}
               >
-                Debut
+                Début
               </th>
               <th
                 style={{
@@ -269,7 +269,7 @@ export default function AvailabilityPage() {
             color: "#ccc",
           }}
         >
-          Ajouter un creneau
+          Ajouter un créneau
         </h3>
 
         <form

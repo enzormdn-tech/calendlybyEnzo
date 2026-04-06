@@ -104,7 +104,7 @@ function BookingTable({
                   color: b.status === "confirmed" ? "#4ade80" : "#f87171",
                 }}
               >
-                {b.status === "confirmed" ? "Confirme" : "Annule"}
+                {b.status === "confirmed" ? "Confirmé" : "Annulé"}
               </span>
             </td>
           </tr>
@@ -156,7 +156,7 @@ export default async function DashboardPage() {
             letterSpacing: "-0.01em",
           }}
         >
-          Rendez-vous passes
+          Rendez-vous passés
         </h2>
         <BookingTable rows={past} />
       </section>
